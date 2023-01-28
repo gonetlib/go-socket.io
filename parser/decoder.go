@@ -4,7 +4,7 @@ import (
 	"bufio"
 	"bytes"
 	"encoding/json"
-	"github.com/googollee/go-socket.io/engineio/session"
+	"github.com/gonetlib/go-socket.io/engineio/session"
 	"io"
 	"io/ioutil"
 	"reflect"

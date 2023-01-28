@@ -21,3 +21,7 @@ lint:
 .PHONY: cover
 cover:
 	go clean -testcache && go test ./... -cover -coverprofile=c.out && go tool cover -html=c.out
+
+.PHONY: run_example
+run_example:
+	go run ./example/server/main.go

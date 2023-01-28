@@ -6,8 +6,8 @@ import (
 
 	"github.com/gomodule/redigo/redis"
 
-	"github.com/googollee/go-socket.io/engineio"
-	"github.com/googollee/go-socket.io/parser"
+	"github.com/gonetlib/go-socket.io/engineio"
+	"github.com/gonetlib/go-socket.io/parser"
 )
 
 // Server is a go-socket.io server.

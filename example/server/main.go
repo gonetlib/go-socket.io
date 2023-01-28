@@ -2,26 +2,30 @@ package main
 
 import (
 	"log"
+	"net/http"
 
-	"github.com/gogf/gf/frame/g"
-	"github.com/gogf/gf/net/ghttp"
-
-	socketio "github.com/googollee/go-socket.io"
+	socketio "github.com/gonetlib/go-socket.io"
+	"github.com/gonetlib/go-socket.io/engineio"
+	"github.com/gonetlib/go-socket.io/engineio/transport"
+	"github.com/gonetlib/go-socket.io/engineio/transport/polling"
+	"github.com/gonetlib/go-socket.io/engineio/transport/websocket"
 )
 
-func cors(r *ghttp.Request) {
-	r.Response.CORSDefault()
-	r.Middleware.Next()
+// Easier to get running with CORS. Thanks for help @Vindexus and @erkie
+var allowOriginFunc = func(r *http.Request) bool {
+	return true
 }
 
 func main() {
-	s := g.Server()
-
-	server := socketio.NewServer(nil)
-
-	s.BindMiddlewareDefault(cors)
-	s.BindHandler("/socket.io/", func(r *ghttp.Request) {
-		server.ServeHTTP(r.Response.Writer, r.Request)
+	server := socketio.NewServer(&engineio.Options{
+		Transports: []transport.Transport{
+			&polling.Transport{
+				CheckOrigin: allowOriginFunc,
+			},
+			&websocket.Transport{
+				CheckOrigin: allowOriginFunc,
+			},
+		},
 	})
 
 	server.OnConnect("/", func(s socketio.Conn) error {
@@ -62,6 +66,9 @@ func main() {
 	}()
 	defer server.Close()
 
-	s.SetPort(8000)
-	s.Run()
+	http.Handle("/socket.io/", server)
+	http.Handle("/asset/", http.StripPrefix("/asset/", http.FileServer(http.Dir("./example/asset"))))
+
+	log.Println("Serving at localhost:7000...")
+	log.Fatal(http.ListenAndServe(":7000", nil))
 }

@@ -1,26 +1,20 @@
 # go-socket.io
 
 [![GoDoc](http://godoc.org/github.com/gonetlib/go-socket.io?status.svg)](http://godoc.org/github.com/gonetlib/go-socket.io) 
-[![Build Status](https://github.com/gonetlib/go-socket.io/workflows/Unit%20tests/badge.svg)](https://github.com/gonetlib/go-socket.io/actions/workflows/unittest.yaml)
+[![Build Status](https://github.com/gonetlib/go-socket.io/actions/workflows/ci.yaml/badge.svg)](https://github.com/gonetlib/go-socket.io/actions/workflows/ci.yaml)
 [![Go Report Card](https://goreportcard.com/badge/github.com/gonetlib/go-socket.io)](https://goreportcard.com/report/github.com/gonetlib/go-socket.io)
 
 go-socket.io is library an implementation of [Socket.IO](http://socket.io) in Golang, which is a realtime application framework.
 
-| Js Version | go-socket.io support |
+## JS Version compatible status
+
+| JS Version | go-socket.io support |
 |------------|----------------------|
-|   1.x     |      YES	       |
-|   2.x     |      YES	       | 
-|   3.x     |       NO	    |
-|   4.x     |       NO	     |
-
-## Contents
-
-- [Install](#install)
-- [Example](#example)
-- [FAQ](#faq)
-- [Engine.io](#engineio)
-- [Community](#community)
-- [License](#license)
+|   0.x     |  :x:  |
+|   1.x     |  :heavy_check_mark:  |
+|   2.x     |  :heavy_check_mark:  | 
+|   3.x     |  :x:  |
+|   4.x     |  :x:  |
 
 ## Install
 
@@ -68,3 +62,9 @@ It contains the `engine.io` analog implementation of the original node-package. 
 ## License
 
 The 3-clause BSD License  - see [LICENSE](https://opensource.org/licenses/BSD-3-Clause) for more details
+
+## Notice
+
+- This repo is frok from [googollee/go-socket.io](https://github.com/googollee/go-socket.io)
+- Why not directly forked with github
+    - Because it will get some issue for GoDoc(it will keep using the original repo)

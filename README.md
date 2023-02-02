@@ -34,7 +34,7 @@ and use `socketio` as the package name inside the code.
 
 ## Example
 
-Please check more examples into folder in project for details. [Examples](https://github.com/gonetlib/go-socket.io/tree/master/_examples)
+Please check more examples into folder in project for details. [Examples](./example/server/main.go)
 
 ## FAQ
 
@@ -46,7 +46,7 @@ It is some popular questions about this repository:
     - Please see examples in [directory](https://github.com/gonetlib/go-socket.io/tree/master/_examples)
 - What is minimal version Golang support for this library?
     - We required Go 1.9 or upper!
-- How to user?
+- How to use?
     - Go-socket.io compatibility with Socket.IO 0.9.x, please use branch 0.9.x * or tag go-socket.io@v0.9.1
 
 ## Community

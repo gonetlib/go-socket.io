@@ -24,4 +24,4 @@ cover:
 
 .PHONY: run_example
 run_example:
-	go run ./example/server/main.go
+	cd ./example/multi_instances/ && go run main.go

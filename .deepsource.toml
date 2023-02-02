@@ -8,5 +8,5 @@ exclude_patterns = ["/_example/**"]
 name = "go"
 enabled = true
 
-  [analyzers.meta]
-  import_paths = ["github.com/gonetlib/go-socket.io"]
+[analyzers.meta]
+import_paths = ["github.com/gonetlib/go-socket.io"]
